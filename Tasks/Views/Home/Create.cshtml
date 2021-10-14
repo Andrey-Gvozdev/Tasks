@@ -3,6 +3,14 @@
 @inject UserManager<User> UserManager
 @{
     ViewBag.Title = "Creating new task";
+    List<string> themes = new List<string>()
+    {
+        "Theme1",
+        "Theme2",
+        "Theme3",
+        "Theme4",
+        "Theme5"
+    };
 }
 <form asp-action="create" asp-controller="home">
     <div class="form-group">
@@ -18,7 +26,9 @@
         <input type="text" asp-for="Answer" class="form-control" />
     </div>
     <div>
-        
+        @Html.DropDownListFor(m => m.Theme,
+            new SelectList(themes),
+            "Select theme")
     </div>
     <div>
         <input type="hidden" asp-for="UserId" value="@UserManager.GetUserId(User)" />

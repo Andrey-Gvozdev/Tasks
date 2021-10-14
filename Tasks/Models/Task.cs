@@ -12,8 +12,7 @@ namespace Tasks.Models
         public string Name { get; set; }
         public string TheTask { get; set; }
         public string Answer { get; set;  }
-        public Theme? Themes { get; set; }
-        public List<Tag>? Tags { get; set; }
+        public string Theme { get; set; }
         public List<Picture>? Pictures { get; set; }
         public string UserId { get; set; }
     }

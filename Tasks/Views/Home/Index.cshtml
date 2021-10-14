@@ -6,7 +6,7 @@
     <tr>
         <th>Task Name</th>
         <th>The Task</th>
-        <th>Themes</th>
+        <th>Theme</th>
     </tr>
 
     @foreach (var item in Model)
@@ -14,7 +14,7 @@
         <tr>
             <td>@item.Name</td>
             <td>@item.TheTask</td>
-            <td>@item.Themes</td>
+            <td>@item.Theme</td>
             <td>
                 <a asp-action="Details" asp-route-id="@item.Id">Task</a>
             </td>

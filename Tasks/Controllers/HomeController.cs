@@ -18,7 +18,6 @@ namespace Tasks.Controllers
         private readonly ILogger<HomeController> _logger;
         private ApplicationDbContext db;
         private readonly UserManager<IdentityUser> _userManager;
-        private List<Theme> themes;
 
         public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
@@ -49,9 +48,6 @@ namespace Tasks.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Models.Task task)
         {
-            List<Theme> themes = new List<Theme>();
-            foreach(var item in db.Themes)
-                themes.Add(item);
             db.Tasks.Add(task);
             await db.SaveChangesAsync();
             return RedirectToAction("UserPage");

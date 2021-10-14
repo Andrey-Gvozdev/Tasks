@@ -17,19 +17,6 @@ namespace Tasks
         {
             var host = CreateHostBuilder(args).Build();
 
-            using (var scope = host.Services.CreateScope())
-            {
-                try
-                {
-                    SeedData.Initialize(scope.ServiceProvider);
-                }
-                catch (Exception ex)
-                {
-                    var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
-                    logger.LogError(ex, "An error occurred seeding the DB.");
-                }
-            }
-
             host.Run();
         }
 

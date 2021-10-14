@@ -10,8 +10,6 @@ namespace Tasks.Data
     public class ApplicationDbContext : IdentityDbContext<User>
     {
         public DbSet<Task> Tasks { get; set; }
-        public DbSet<Tag> Tags { get; set; }
-        public DbSet<Theme> Themes { get; set; }
         public DbSet<Picture> Pictures { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
