@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model Tasks.Models.Task
+@inject UserManager<User> UserManager
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <dl class="list-group-horizontal">
+        <dt>Task name: </dt>
+        <dd>@Model.Name;</dd>
+        <dt>The task: </dt>
+        <dd>@Model.TheTask;</dd>
+        @if (Model.Themes != null){
+            <dt>Theme: </dt>
+            <dd>@Model.Themes;</dd>
+        }
+        @if (Model.Pictures != null){
+            <dt>Pictures: </dt>
+            <dd>@Model.Pictures;</dd>
+        }
+    </dl>
+</div>
+@if (User.Identity.IsAuthenticated) { 
+    <div>
+        working
+    </div>
+}

@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<Tasks.Models.Task>
+@inject UserManager<User> UserManager
+@{
+    ViewData["Title"] = @User.Identity.Name;
+}
+<h2>@ViewData["Title"]</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>The task</th>
+        <th>Answer</th>
+        <th>Themes</th>
+        <th>Tags</th>
+    </tr>
+
+    @foreach (var item in Model) if (item.UserId == UserManager.GetUserId(User))
+    {
+    <tr>
+        <td>@item.Name</td>
+        <td>@item.TheTask</td>
+        <td>@item.Answer</td>
+        <td>@item.Themes</td>
+        <td>@item.Tags</td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+            <a asp-action="Details" asp-route-id="@item.Id">Task</a> |
+            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+        </td>
+    </tr>
+    }
+</table>

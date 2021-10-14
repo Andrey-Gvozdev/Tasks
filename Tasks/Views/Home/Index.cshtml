@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Tasks.Models.Task>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<table class="table">
+    <tr>
+        <th>Task Name</th>
+        <th>The Task</th>
+        <th>Themes</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.TheTask</td>
+            <td>@item.Themes</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Task</a>
+            </td>
+        </tr>
+    }
+</table>

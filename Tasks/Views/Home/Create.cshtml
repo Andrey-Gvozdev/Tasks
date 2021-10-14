@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model Tasks.Models.Task
+@inject UserManager<User> UserManager
+@{
+    ViewBag.Title = "Creating new task";
+}
+<form asp-action="create" asp-controller="home">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Task name</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="TheTask" class="control-label">The task</label>
+        <textarea type="text" asp-for="TheTask" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="Answer" class="control-label">Answer</label>
+        <input type="text" asp-for="Answer" class="form-control" />
+    </div>
+    <div>
+        
+    </div>
+    <div>
+        <input type="hidden" asp-for="UserId" value="@UserManager.GetUserId(User)" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-default" />
+        @Html.ActionLink("Back", "UserPage")
+    </div>
+</form>
